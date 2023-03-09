@@ -8,6 +8,10 @@
 </head>
 <body>
 
+<div id="nav">
+ <%@ include file="../include/nav.jsp" %>
+</div>
+
 <label>제목</label>
 ${view.title}<br />
 
@@ -18,7 +22,8 @@ ${view.writer}<br />
 ${view.content}<br />
 
 <div>
-	<a href="/board/modify?board_id=${view.board_id}">게시물 수정</a>
+	<a href="/board/modify?board_id=${view.board_id}">게시물 수
+	</a>
 </div>
 
 </body>
