@@ -40,4 +40,11 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public void delete(int board_id) throws Exception {
+		
+		dao.delete(board_id);
+		
+	}
+
 }

@@ -38,5 +38,13 @@
 			where board_id = #{board_id}
 	</update>
 	
+	<!-- 게시물 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete
+			from tbl_board
+		where board_id = #{board_id}
+	</delete>
+	
+	
 
 </mapper>

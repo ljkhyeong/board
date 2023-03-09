@@ -13,4 +13,6 @@ public interface BoardService {
 	public BoardVO view(int board_id) throws Exception;
 	
 	public void modify(BoardVO vo) throws Exception;
+	
+	public void delete(int board_id) throws Exception;
 }

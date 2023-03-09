@@ -62,4 +62,11 @@ public class BoardController {
 		
 		return "redirect:/board/view?board_id=" + vo.getBoard_id(); 
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String getDelete(@RequestParam("board_id") int board_id) throws Exception {
+		service.delete(board_id);
+		
+		return "redirect:/board/list";
+	}
 }
