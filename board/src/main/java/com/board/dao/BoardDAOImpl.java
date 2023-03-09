@@ -31,6 +31,19 @@ public class BoardDAOImpl implements BoardDAO {
 		sql.insert(namespace + ".write", vo); 
 		
 	}
+
+
+	@Override
+	public BoardVO view(int board_id) throws Exception {
+		return sql.selectOne(namespace + ".view", board_id);
+	}
+
+
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		sql.update(namespace + ".modify", vo);
+		
+	}
 		
 	
 

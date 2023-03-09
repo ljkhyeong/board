@@ -11,4 +11,6 @@ public interface BoardService {
 	public void write(BoardVO vo) throws Exception;
 	
 	public BoardVO view(int board_id) throws Exception;
+	
+	public void modify(BoardVO vo) throws Exception;
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
@@ -39,5 +40,26 @@ public class BoardController {
 		service.write(vo);
 		
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public void getView(@RequestParam("board_id") int board_id, Model model) throws Exception {
+		BoardVO vo = service.view(board_id);
+		model.addAttribute("view", vo);
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void getModify(@RequestParam("board_id") int board_id, Model model) throws Exception {
+		
+		BoardVO vo = service.view(board_id);
+		model.addAttribute("view", vo);
+	}
+	
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String postModify(BoardVO vo) throws Exception {
+		
+		service.modify(vo);
+		
+		return "redirect:/board/view?board_id=" + vo.getBoard_id(); 
 	}
 }
