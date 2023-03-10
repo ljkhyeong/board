@@ -69,4 +69,23 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {
+		
+		
+		int count = service.count();
+		
+		int postNumber = 10;
+		
+		int pageNumber = (int)Math.ceil((double)count/postNumber);
+		
+		int displayPost = (num - 1) * postNumber;
+		
+		List<BoardVO> list = null; 
+		list = service.listPage(displayPost, postNumber);
+		model.addAttribute("list", list);
+		model.addAttribute("pageNumber", pageNumber);
+	}
+	
 }
